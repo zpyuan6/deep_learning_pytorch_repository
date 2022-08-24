@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# myfile
+saved_model/*
+loss_record/*
+embedding_word.npy
+vocabulary_dir.json
+

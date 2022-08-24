@@ -123,8 +123,6 @@ def train_model():
     val_step_num = int(val_dataset.__len__()/val_batch_size)
     print(f"train_step_num {train_step_num},val_step_num {val_step_num}")
 
-    training_log = open("training.log","w")
-
     for epoch in epochs:
         loss        = 0
         val_loss    = 0
@@ -186,7 +184,6 @@ def train_model():
             # Gpu save model will cause KeyError: 'module.conv.conv0_s1.weight' while load pth file
             torch.save(model.state_dict(), model_save_path+'/%s-%s_classes-%s_input_shape-ep%03d-loss%.3f-val_loss%.3f.pth'% (model_name, str(len(classes)),str(input_shape), epoch + 1, training_loss, validation_loss))
 
-    training_log.close()
 
 if __name__ == "__main__":
     train_model()

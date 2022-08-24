@@ -9,7 +9,7 @@ def get_lr(optimizer):
         return param_group['lr']
 
 def train_model(
-    model:torch.Module,
+    model:torch.nn.Module,
     device:torch.device,
     train_dataset:Dataset,
     train_dataset_loader:DataLoader,
@@ -32,7 +32,7 @@ def train_model(
 
     with tqdm(total=train_step_num,desc=f'Epoch {epoch + 1}/{num_epochs}',postfix=dict,mininterval=0.3) as pbar:
         for iteration,batch in enumerate(train_dataset_loader):
-            input, label, path = batch[0],batch[1],batch[2]
+            input, label = batch[0],batch[1]
 
             if torch.max(torch.isnan(input))==1:
                 raise Exception("data problem")
@@ -83,7 +83,7 @@ def train_model(
 
 
 def val_model(
-    model:torch.Module,
+    model:torch.nn.Module,
     device:torch.device,
     val_dataset:Dataset,
     val_dataset_loader:DataLoader,

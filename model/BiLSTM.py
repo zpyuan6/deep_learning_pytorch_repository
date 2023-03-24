@@ -13,6 +13,9 @@ class BiLSTM_Sentiment_Classifier(nn.Module):
         self.num_classes = num_classes
         self.batch_size = batch_size
         
+        # 一个简单的查找表，用于存储固定字典和大小的嵌入。该模块通常用于存储词嵌入并使用索引检索它们。模块的输入是索引列表，输出是相应的词嵌入。
+        # num_embeddings ( int ) – 嵌入字典的大小
+        # embedding_dim ( int ) – 每个嵌入向量的大小
         self.embedding = nn.Embedding(vocab_size, embedding_dim)
         
         self.lstm = nn.LSTM(embedding_dim,

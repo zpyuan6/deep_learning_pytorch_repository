@@ -10,7 +10,6 @@ import torchvision.transforms as transforms
 
 from utils.load_deep_learning_model import load_model
 
-
 model_name = "DenseNet121"
 model_path = "saved_model\\2D\DenseNet\DenseNet121-4_classes-[214, 214]_input_shape-ep020-loss0.000-val_loss0.032.pth"
 input_shape = [214, 214]

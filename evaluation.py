@@ -52,7 +52,7 @@ def do_prediction():
                 model = model.to(device=device)
 
             model = model.eval()
-                
+
             outputs = model(mri)
             preds = torch.softmax(outputs,1)
 
